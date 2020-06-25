@@ -1,4 +1,15 @@
-<ul>
-  <li>Netflix</li>
-  <li>Spotify</li>
-</ul>
+<mat-toolbar>
+  <span class="total">¥2000</span>
+</mat-toolbar>
+
+<div class="grid">
+  <mat-card *ngFor="let subscription of subscriptions">
+    <h3>{{subscription.name}}</h3>
+    <p>{{subscription.price}}</p>
+  </mat-card>
+  <mat-card>
+    <form>
+
+    </form>
+  </mat-card>
+</div>

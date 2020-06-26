@@ -1,15 +1,15 @@
 <mat-toolbar>
   <span class="total">¥2000</span>
 </mat-toolbar>
-
 <div class="grid">
   <mat-card *ngFor="let subscription of subscriptions">
     <h3>{{subscription.name}}</h3>
-    <p>{{subscription.price}}</p>
+    <p>¥{{subscription.price}}</p>
   </mat-card>
+  <!--  -->
   <mat-card>
-    <form>
-
-    </form>
+    <h3>{{(item | async)?.name }}</h3>
+    <p>¥{{(item | async)?.price}}</p>
   </mat-card>
+  <app-add></app-add>
 </div>

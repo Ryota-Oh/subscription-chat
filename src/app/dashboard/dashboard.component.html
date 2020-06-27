@@ -1,15 +1,29 @@
 <mat-toolbar>
   <span class="total">¥2000</span>
 </mat-toolbar>
+
 <div class="grid">
-  <mat-card *ngFor="let subscription of subscriptions">
-    <h3>{{subscription.name}}</h3>
+  <mat-card *ngFor="let subscription of subscriptions | async">
+    <h3>{{subscription.name }}</h3>
     <p>¥{{subscription.price}}</p>
   </mat-card>
-  <!--  -->
+
   <mat-card>
-    <h3>{{(item | async)?.name }}</h3>
-    <p>¥{{(item | async)?.price}}</p>
+    <form>
+      <div>
+        <div>
+          <input [(ngModel)]="name" name="name" placeholder="Name" id="hard" type="text" required>
+        </div>
+      </div>
+      <div>
+        <div class="full-width">
+          <div>
+            <input [(ngModel)]="price" placeholder="Price" name="price" id="hard" required>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button type="submit" (click)="addSubscription(name, price)">Submit
+    </button>
   </mat-card>
-  <app-add></app-add>
 </div>

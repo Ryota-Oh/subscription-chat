@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Observable } from 'rxjs';
-import { Subscription } from '../class/subscription'
-import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
+// import { Subscription } from '../class/subscription'
+// import { AngularFireDatabase } from '@angular/fire/database';
 
 
 // const SUBSCRIPTIONS: Subscription[] = [
@@ -19,9 +18,14 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class AddComponent implements OnInit {
 
-  name = "";
-  price = "";
+  // name = "";
+  // price = "";
 
+  // addSubscription(name: string, price:number):void{
+  // if(Subscription){
+  //   this.subscriptionRef.push(new Subscription(name,price))
+  // }
+  // }
 
   ngOnInit(): void {
   }

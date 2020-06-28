@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from '../class/subscription';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Observable } from 'rxjs';
-
-// const SUBSCRIPTIONS: Subscription[] = [
-//   new Subscription('Netflix', 1000),
-//   new Subscription('Spotify', 480),
-//   new Subscription('hulu', 980),
-//   new Subscription('AWS', 10000),
-// ]
 
 
 @Component({
@@ -18,32 +10,40 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-  price = "";
-  name = "";
-  subscriptions: Observable<any[]>;
+  name: string;
+  price: number;
+  subscriptions: Subscription[]
   subscriptionsRef: AngularFireList<any>;
-
 
   constructor(private db: AngularFireDatabase) {
     this.subscriptionsRef = db.list('/subscriptions');
-    this.subscriptions = this.subscriptionsRef.valueChanges();
-  }
-
-
-  clearTexr(): void {
-    const CLEAR = document.getElementById('hard');
-    CLEAR.nodeValue = "";
+    this.subscriptionsRef.snapshotChanges()
+      .subscribe(snapshots => {
+        this.subscriptions = snapshots.map(snapshot => {
+          const values = snapshot.payload.val();
+          return new Subscription({ key: snapshot.payload.key, ...values });
+        });
+      });
   }
 
   addSubscription(name: string, price: number): void {
     if (Subscription) {
-      this.subscriptionsRef.push(new Subscription(name, price));
+      this.subscriptionsRef.push(new Subscription({ name: name, price: price }));
       this.name = '';
-      this.clearTexr
+      this.price;
     }
   }
 
-  ngOnInit(): void { }
+  deleteItem(key: string): void {
+    this.subscriptionsRef.remove(key);
+  }
 
+  // totalPrice(): void {
+  //   let total = 0;
+  //   for (let i = 0; i < this.subscriptions.length; i++) {
+  //   }
+  // }
+
+  ngOnInit(): void { }
 }
 

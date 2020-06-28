@@ -1,29 +1,26 @@
 <mat-toolbar>
-  <span class="total">¥2000</span>
+  <span class="total">200</span>
 </mat-toolbar>
-
 <div class="grid">
-  <mat-card *ngFor="let subscription of subscriptions | async">
+  <mat-card *ngFor="let subscription of subscriptions">
     <h3>{{subscription.name }}</h3>
     <p>¥{{subscription.price}}</p>
+    <ng-container>
+      <i class="fa fa-trash" title="削除" (click)="deleteItem(subscription.key)"></i>
+    </ng-container>
   </mat-card>
 
   <mat-card>
     <form>
       <div>
-        <div>
-          <input [(ngModel)]="name" name="name" placeholder="Name" id="hard" type="text" required>
-        </div>
+        <p>サービス名</p>
+        <input [(ngModel)]="name" name="name" placeholder="Name" type="text" required>
       </div>
-      <div>
-        <div class="full-width">
-          <div>
-            <input [(ngModel)]="price" placeholder="Price" name="price" id="hard" required>
-          </div>
-        </div>
+      <div class="full-width">
+        <p>月額料金</p>
+        <input [(ngModel)]="price" placeholder="Price" name="price" required>
       </div>
     </form>
-    <button type="submit" (click)="addSubscription(name, price)">Submit
-    </button>
+    <button type="submit" (click)="addSubscription(name, price)">Submit</button>
   </mat-card>
 </div>

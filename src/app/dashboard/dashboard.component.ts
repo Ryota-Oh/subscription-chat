@@ -30,7 +30,9 @@ export class DashboardComponent implements OnInit {
     if (Subscription) {
       this.subscriptionsRef.push(new Subscription({ name: name, price: price }));
       this.name = '';
-      this.price;
+      this.price = 0;
+    } else {
+      return;
     }
   }
 
@@ -38,11 +40,7 @@ export class DashboardComponent implements OnInit {
     this.subscriptionsRef.remove(key);
   }
 
-  // totalPrice(): void {
-  //   let total = 0;
-  //   for (let i = 0; i < this.subscriptions.length; i++) {
-  //   }
-  // }
+
 
   ngOnInit(): void { }
 }

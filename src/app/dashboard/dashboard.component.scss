@@ -2,9 +2,26 @@
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  margin: 0 12px;
 }
 
 .contract{
   height: 200px;
+  position: relative;
 }
 
+// .add_{
+//   height: 200px;
+//   >form{
+//     position: relative;
+//   }
+//   >.add_buttom{
+//     position: absolute;
+//     bottom: 0;
+// }
+
+i{
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 5px;
+}

@@ -2,22 +2,27 @@
   <span class="total">200</span>
 </mat-toolbar>
 <div class="grid">
-  <mat-card *ngFor="let subscription of subscriptions" class="contract">
-    <h3>{{subscription.name }}</h3>
-    <p>¥{{subscription.price}}</p>
-    <ng-container>
-      <i class="fa fa-trash" title="削除" (click)="deleteItem(subscription.key)"></i>
-    </ng-container>
-  </mat-card>
   <mat-card class="add_">
     <form>
       <mat-form-field>
         <input matInput placeholder="name" [(ngModel)]="name" name="name" type="text" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="price" [(ngModel)]="price" name="price" type="text" required>
+        <input matInput placeholder="price" [(ngModel)]="price" name="price" type="number" required>
       </mat-form-field>
     </form>
-    <button mat-button type="submit" (click)="addSubscription(name, price)">Submit</button>
+    <mat-card-actions>
+      <button mat-button type="submit" class="add_buttom" (click)="addSubscription(name, price)">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngFor="let subscription of subscriptions" class="contract">
+    <mat-card-title>{{subscription.name }}</mat-card-title>
+    <mat-card-content>
+      <ng-container>
+        <p>¥{{subscription.price}}</p>
+        <i class="fa fa-trash fa-2x" title="削除" (click)="deleteItem(subscription.key)"></i>
+      </ng-container>
+    </mat-card-content>
   </mat-card>
 </div>

@@ -45,9 +45,10 @@ export class DashboardComponent implements OnInit {
     this.subscriptionsRef.remove(key);
   }
 
-  saveEditSubscription(index: number, key: string) {
+  saveEditSubscription(index: number, key: string): void {
     this.subscriptionsRef.update(key, {
-      name: this.subscriptions[index].name
+      name: this.subscriptions[index].name,
+      price: this.subscriptions[index].price
     })
       .then(() => {
         this.subscriptions[index].isEdit = false;

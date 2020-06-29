@@ -3,6 +3,7 @@ export class Subscription {
   name: string;
   price: number;
   key?: string;
+  isEdit?: boolean;
 
   constructor(values: any) {
     this.name = values.name;

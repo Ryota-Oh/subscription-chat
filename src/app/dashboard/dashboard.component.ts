@@ -36,11 +36,23 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  toggleEditSubscription(index: number): void {
+    this.subscriptions[index].isEdit = !this.subscriptions[index].isEdit
+  }
+
+
   deleteItem(key: string): void {
     this.subscriptionsRef.remove(key);
   }
 
-
+  saveEditSubscription(index: number, key: string) {
+    this.subscriptionsRef.update(key, {
+      name: this.subscriptions[index].name
+    })
+      .then(() => {
+        this.subscriptions[index].isEdit = false;
+      })
+  }
 
   ngOnInit(): void { }
 }

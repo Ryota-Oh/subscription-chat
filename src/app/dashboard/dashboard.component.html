@@ -4,6 +4,7 @@
 <div class="grid">
   <mat-card class="add_">
     <form>
+
       <mat-form-field>
         <input matInput placeholder="name" [(ngModel)]="name" name="name" type="text" required>
       </mat-form-field>
@@ -16,13 +17,34 @@
     </mat-card-actions>
   </mat-card>
 
-  <mat-card *ngFor="let subscription of subscriptions" class="contract">
-    <mat-card-title>{{subscription.name }}</mat-card-title>
+
+
+  <mat-card *ngFor="let subscription of subscriptions; let i=index" class="contract">
+    <ng-container *ngIf="!subscription.isEdit">
+      <mat-card-title>{{subscription.name }}</mat-card-title>
+    </ng-container>
+    <ng-container *ngIf="subscription.isEdit">
+      <input matInput placeholder="name" class="form-control" [(ngModel)]="subscription.name" name="edit_name"
+        type="text" required>
+    </ng-container>
     <mat-card-content>
-      <ng-container>
+      <ng-container *ngIf="!subscription.isEdit">
         <p>¥{{subscription.price}}</p>
-        <i class="fa fa-trash fa-2x" title="削除" (click)="deleteItem(subscription.key)"></i>
       </ng-container>
+      <ng-container *ngIf="subscription.isEdit">
+        <input matInput placeholder="price" class="form-control" [(ngModel)]="subscription.price" name="edit_price"
+          type="text" required>
+        <div class="edit-buttom">
+          <button class="btn btn-success" mat-button (click)="saveEditSubscription(i, subscription.key)">保存</button>
+          <button class="btn btn-warning" mat-button (click)="toggleEditSubscription(i)">キャンセル</button>
+        </div>
+      </ng-container>
+
+
+      <div class="editor">
+        <i class=" fa fa-edit fa-1.8x" title="編集" (click)="toggleEditSubscription(i)"></i>
+        <i class="fa fa-trash fa-1.8x" title="削除" (click)="deleteItem(subscription.key)"></i>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

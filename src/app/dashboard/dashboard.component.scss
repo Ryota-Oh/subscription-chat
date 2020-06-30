@@ -19,10 +19,39 @@ i{
   height: 200px;
 }
 
-.editor{
+.editor {
   position: absolute;
   bottom: 0;
   padding-bottom: 5px;
 }
 
+.contract-price{
+  font-size: 24px;
+  height: 30px;
+  line-height: 30px;
+
+}
+.contract-input-name{
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: rgba(black,0.6);
+  height: 30px;
+  line-height: 30px;
+
+}
+.contract-name{
+  margin-bottom: 20px;
+  font-size: 24px;
+  height: 30px;
+  line-height: 30px;
+
+
+}
+
+.contract-input-price{
+  font-size: 24px;
+  color: rgba(black,0.6);
+  height: 30px;
+  line-height: 30px;
+}
 

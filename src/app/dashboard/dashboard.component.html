@@ -21,30 +21,36 @@
 
   <mat-card *ngFor="let subscription of subscriptions; let i=index" class="contract">
     <ng-container *ngIf="!subscription.isEdit">
-      <mat-card-title>{{subscription.name }}</mat-card-title>
+      <mat-card-title class="contract-name">{{subscription.name }}</mat-card-title>
     </ng-container>
     <ng-container *ngIf="subscription.isEdit">
-      <input matInput placeholder="name" class="form-control" [(ngModel)]="subscription.name" name="edit_name"
-        type="text" required>
+      <input class="contract-input-name" matInput placeholder="name" [(ngModel)]="subscription.name" name="edit_name"
+        type="text" required size=24>
     </ng-container>
+
     <mat-card-content>
       <ng-container *ngIf="!subscription.isEdit">
-        <p>¥{{subscription.price}}</p>
+        <p class="contract-price">¥{{subscription.price}}</p>
       </ng-container>
       <ng-container *ngIf="subscription.isEdit">
-        <input matInput placeholder="price" class="form-control" [(ngModel)]="subscription.price" name="edit_price"
-          type="text" required>
-        <div class="edit-buttom">
+        <input matInput placeholder="price" [(ngModel)]="subscription.price" name="edit_price" type="text" required
+          class="contract-input-price" size=24>
+
+
+        <div class="editor">
           <button class="btn btn-success" mat-button (click)="saveEditSubscription(i, subscription.key)">保存</button>
           <button class="btn btn-warning" mat-button (click)="toggleEditSubscription(i)">キャンセル</button>
         </div>
       </ng-container>
 
 
-      <div class="editor">
-        <i class=" fa fa-edit fa-1.8x" title="編集" (click)="toggleEditSubscription(i)"></i>
-        <i class="fa fa-trash fa-1.8x" title="削除" (click)="deleteItem(subscription.key)"></i>
-      </div>
+      <ng-container *ngIf="!subscription.isEdit">
+        <div class="editor">
+          <i class=" fa fa-edit fa-1.8x" title="編集" (click)="toggleEditSubscription(i)"></i>
+          <i class="fa fa-trash fa-1.8x" title="削除" (click)="deleteItem(subscription.key)"></i>
+        </div>
+      </ng-container>
+
     </mat-card-content>
   </mat-card>
 </div>

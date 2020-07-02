@@ -17,12 +17,22 @@ i{
 
 .add_{
   height: 200px;
+  position: relative;
+
+}
+
+
+
+mat-card-actions{
+  position: absolute;
+  bottom: 15px;
 }
 
 .editor {
   position: absolute;
   bottom: 0;
-  padding-bottom: 5px;
+  height: 45px;
+  line-height: 45px;
 }
 
 .contract-price{

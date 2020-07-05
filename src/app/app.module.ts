@@ -7,6 +7,8 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthService } from './services/auth.service';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -21,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     AppComponent,
     DashboardComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { MatInputModule } from '@angular/material/input';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

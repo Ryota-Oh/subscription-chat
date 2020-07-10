@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignUpComponent } from './sign-up/sign-up.component'
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -22,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     AppComponent,
     DashboardComponent,
-
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

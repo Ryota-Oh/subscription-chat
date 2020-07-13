@@ -1,2 +1,19 @@
-<h1>サブスクくん</h1>
-<button mat-raised-button color="primaly">ログイン</button>
+<mat-card>
+  <h1 class="signup-title">新規会員登録</h1>
+  <form #f="ngForm" (ngSubmit)="signup(f)">
+    <mat-form-field class="signup-email">
+      <mat-label>Email</mat-label>
+      <input matInput ngModel type="email" name="email">
+    </mat-form-field>
+    <mat-form-field class="signup-pass">
+      <mat-label>パスワード</mat-label>
+      <input matInput ngModel type="password" name="password">
+    </mat-form-field>
+    <mat-form-field class="signup-pass2">
+      <mat-label>パスワード</mat-label>
+      <input matInput ngModel type="password" name="confirm_password">
+    </mat-form-field>
+    <button mat-button type="submit" color="primary" class="signup-register">新規登録</button>
+  </form>
+  <button mat-button class="signup-login">ログイン</button>
+</mat-card>

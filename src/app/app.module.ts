@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { MatInputModule } from '@angular/material/input';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

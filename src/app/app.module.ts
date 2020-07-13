@@ -19,12 +19,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 import { AuthService } from './services/auth.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

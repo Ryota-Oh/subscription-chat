@@ -2,7 +2,9 @@
   <mat-toolbar color="primary">
     <a routerLink="/" mat-mat-button class="kunn">サブスクくん</a>
     <span class="spacer"></span>
-    <button routerLink="/signup" mat-button>サインアップ</button>
+    <button routerLink="/signup" *ngIf="!login" mat-button>サインアップ</button>
+    <button routerLink="/" *ngIf="login" mat-button (click)="logout()">ログアウト</button>
+
   </mat-toolbar>
 </header>
 <router-outlet></router-outlet>

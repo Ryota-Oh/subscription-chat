@@ -1,0 +1,16 @@
+<mat-card>
+  <h1 class="signup-title">ログイン</h1>
+  <form #f="ngForm" (ngSubmit)="login(f)">
+    <mat-form-field class="signup-email">
+      <mat-label>Email</mat-label>
+      <input matInput ngModel type="email" name="email" ngModel>
+    </mat-form-field>
+    <mat-form-field class="signup-pass">
+      <mat-label>パスワード</mat-label>
+      <input matInput ngModel type="password" name="password" ngModel>
+    </mat-form-field>
+
+    <button mat-button type="submit" color="primary" class="signup-register">ログイン</button>
+  </form>
+  <button mat-button class="signup-login" routerLink="/signup">新規会員登録はこちら</button>
+</mat-card>

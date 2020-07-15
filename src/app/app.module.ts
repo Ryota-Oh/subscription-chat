@@ -20,13 +20,15 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
